@@ -1,0 +1,22 @@
+﻿INSERT INTO Books (Title, Author, Description, FilePath)
+VALUES 
+('To Kill a Mockingbird', 'Harper Lee', 'A novel about the serious issues of rape and racial inequality.', 'path/to/to_kill_a_mockingbird.pdf'),
+('1984', 'George Orwell', 'A dystopian novel set in a totalitarian society under constant surveillance.', 'path/to/1984.pdf'),
+('Pride and Prejudice', 'Jane Austen', 'A romantic novel that charts the emotional development of the protagonist.', 'path/to/pride_and_prejudice.pdf'),
+('The Great Gatsby', 'F. Scott Fitzgerald', 'A story about the young and mysterious millionaire Jay Gatsby and his quixotic passion for the beautiful Daisy Buchanan.', 'path/to/the_great_gatsby.pdf'),
+('Moby Dick', 'Herman Melville', 'The narrative of the adventures of the wandering sailor Ishmael and his voyage on the whaleship Pequod.', 'path/to/moby_dick.pdf'),
+('War and Peace', 'Leo Tolstoy', 'A historical novel that tells the story of five families and their struggles during the Napoleonic Wars.', 'path/to/war_and_peace.pdf'),
+('The Catcher in the Rye', 'J.D. Salinger', 'A story about the experiences of a young boy named Holden Caulfield.', 'path/to/the_catcher_in_the_rye.pdf'),
+('The Hobbit', 'J.R.R. Tolkien', 'A fantasy novel and childrens book by J.R.R. Tolkien.', 'path/to/the_hobbit.pdf'),
+('Fahrenheit 451', 'Ray Bradbury', 'A dystopian novel that presents a future American society where books are outlawed and "firemen" burn any that are found.', 'path/to/fahrenheit_451.pdf'),
+('Crime and Punishment', 'Fyodor Dostoevsky', 'A novel that focuses on the mental anguish and moral dilemmas of Raskolnikov, an impoverished ex-student.', 'path/to/crime_and_punishment.pdf'),
+('The Brothers Karamazov', 'Fyodor Dostoevsky', 'A passionate philosophical novel set in 19th-century Russia, that enters deeply into the ethical debates of God, free will, and morality.', 'path/to/the_brothers_karamazov.pdf'),
+('Brave New World', 'Aldous Huxley', 'A dystopian novel set in a futuristic World State, whose citizens are environmentally engineered into an intelligence-based social hierarchy.', 'path/to/brave_new_world.pdf'),
+('The Odyssey', 'Homer', 'An ancient Greek epic poem attributed to Homer, recounting the adventures of Odysseus during his return home from the Trojan War.', 'path/to/the_odyssey.pdf'),
+('Jane Eyre', 'Charlotte Brontë', 'A novel that follows the emotions and experiences of its title character, including her growth to adulthood and her love for Mr. Rochester.', 'path/to/jane_eyre.pdf'),
+('Wuthering Heights', 'Emily Brontë', 'A story of love and revenge set on the bleak Yorkshire moors.', 'path/to/wuthering_heights.pdf'),
+('The Divine Comedy', 'Dante Alighieri', 'An epic poem describing Dantes journey through Hell, Purgatory, and Paradise.', 'path/to/the_divine_comedy.pdf'),
+('One Hundred Years of Solitude', 'Gabriel Garcia Marquez', 'A multi-generational story that follows the Buendia family and their mythical town of Macondo.', 'path/to/one_hundred_years_of_solitude.pdf'),
+('The Picture of Dorian Gray', 'Oscar Wilde', 'A philosophical novel about a young man whose portrait ages while he remains youthful.', 'path/to/the_picture_of_dorian_gray.pdf'),
+('Catch-22', 'Joseph Heller', 'A satirical novel set during World War II, focusing on the absurdities of war and military life.', 'path/to/catch_22.pdf'),
+('Anna Karenina', 'Leo Tolstoy', 'A complex novel in eight parts, dealing with themes of betrayal, faith, family, marriage, Imperial Russian society, desire, and rural vs. city life.', 'path/to/anna_karenina.pdf');

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OnlineLibrary</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" integrity="sha384-xGm5QkV4b7f5lW1gPLfZg1fCPh4hfhUfjHJWsYPKfOihClBtjKlJ1BoD0UED6w0f" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OnlineLibrary.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="../Views/Books/Animations.css" asp-append-version="true" />
+    <style>
+        :root {
+            --viva-magenta: #BB2649;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: var(--viva-magenta) !important;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #fff !important;
+        }
+
+        .footer {
+            background-color: var(--viva-magenta);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--viva-magenta);
+            border-color: var(--viva-magenta);
+        }
+
+        .btn-primary:hover {
+            background-color: darken(var(--viva-magenta), 10%);
+            border-color: darken(var(--viva-magenta), 10%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand ms-5" asp-area="" asp-controller="Books" asp-action="Index">OnlineLibrary</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Create">Upload</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex me-5" asp-controller="Books" asp-action="Index">
+                        <select class="custom-select form-select w-50 me-2"  name="searchType">
+                            <option value="Title" selected>Title</option>
+                            <option value="Author">Author</option>
+                        </select>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            &copy; 2024 - OnlineLibrary - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

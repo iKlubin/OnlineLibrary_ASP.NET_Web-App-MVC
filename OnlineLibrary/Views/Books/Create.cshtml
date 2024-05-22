@@ -1,0 +1,59 @@
+﻿@model OnlineLibrary.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center mb-4 mt-5">Upload Book</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Create" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Title</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-book"></i></span>
+                    <input asp-for="Title" class="form-control" placeholder="Enter book title" />
+                </div>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Author" class="form-label">Author</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input asp-for="Author" class="form-control" placeholder="Enter author name" />
+                </div>
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Description</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                    <textarea asp-for="Description" class="form-control" placeholder="Enter book description"></textarea>
+                </div>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-4">
+                <label asp-for="FilePath" class="form-label">Upload Book File</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-upload"></i></span>
+                    <input asp-for="FilePath" type="file" class="form-control" />
+                </div>
+                <span asp-validation-for="FilePath" class="text-danger"></span>
+            </div>
+            <div class="d-grid">
+                <input type="submit" value="Upload" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
