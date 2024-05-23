@@ -20,3 +20,73 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    width: 350px;
+    margin: 20px
+}
+
+.card-body {
+    flex-grow: 1;
+    padding: 15px;
+}
+
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.card-text {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.btn-custom {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+    .btn-custom:last-child {
+        margin-bottom: 0;
+    }
+
+.btn-edit {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-favorite {
+    background-color: black;
+    color: yellow;
+}
+
+.btn-download {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-details {
+    background-color: #17a2b8;
+    color: white;
+}

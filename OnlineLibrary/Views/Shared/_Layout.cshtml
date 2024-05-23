@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OnlineLibrary</title>
+    <title>@ViewData["Title"] - Мир Книг</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" integrity="sha384-xGm5QkV4b7f5lW1gPLfZg1fCPh4hfhUfjHJWsYPKfOihClBtjKlJ1BoD0UED6w0f" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OnlineLibrary.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="../Views/Books/Animations.css" asp-append-version="true" />
@@ -57,23 +57,40 @@
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand ms-5" asp-area="" asp-controller="Books" asp-action="Index">OnlineLibrary</a>
+                <a class="navbar-brand ms-5" asp-area="" asp-controller="Books" asp-action="Index">Мир Книг</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Create">Upload</a>
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Create">Добавить</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Favorites" asp-action="Index">Избранное</a>
+                        </li>
+                        <ul class="navbar-nav">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Вход</a>
+                                </li>
+                            }
+                        </ul>
                     </ul>
                     <form class="d-flex me-5" asp-controller="Books" asp-action="Index">
                         <select class="custom-select form-select w-50 me-2"  name="searchType">
-                            <option value="Title" selected>Title</option>
-                            <option value="Author">Author</option>
+                            <option value="Title" selected>Название</option>
+                            <option value="Author">Автор</option>
                         </select>
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchString">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Поиск" name="searchString">
+                        <button class="btn btn-outline-light" type="submit">Поиск</button>
                     </form>
                 </div>
             </div>

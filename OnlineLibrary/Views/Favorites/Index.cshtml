@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OnlineLibrary.Models.FavoriteBook>
+
+@{
+    ViewData["Title"] = "Favorites";
+}
+
+<h1 class="text-center">Your Favorite Books</h1>
+
+<div class="row">
+    @foreach (var favorite in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@favorite.Book.Title</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@favorite.Book.Author</h6>
+                    <p class="card-text">@favorite.Book.Description</p>
+                    <div class="mt-auto">
+                        <a asp-action="Details" asp-controller="Books" asp-route-id="@favorite.Book.Id" class="btn btn-info">Подробнее</a>
+                        @if (!string.IsNullOrEmpty(favorite.Book.FilePath))
+                        {
+                            <a href="@Url.Content($"~/{favorite.Book.FilePath}")" class="btn btn-primary ms-2">Download</a>
+                        }
+                        <a asp-action="Edit" asp-controller="Books" asp-route-id="@favorite.Book.Id" class="btn btn-warning ms-2">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

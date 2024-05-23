@@ -1,40 +1,40 @@
 ﻿@model OnlineLibrary.Models.Book
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Добавить";
 }
 
-<h1 class="text-center mb-4 mt-5">Upload Book</h1>
+<h1 class="text-center mb-4 mt-5">Добавить новую книгу</h1>
 
 <div class="row justify-content-center">
     <div class="col-md-6">
         <form asp-action="Create" enctype="multipart/form-data" class="p-4 border rounded shadow-sm bg-light">
             <div class="form-group mb-3">
-                <label asp-for="Title" class="form-label">Title</label>
+                <label asp-for="Title" class="form-label">Название</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-book"></i></span>
-                    <input asp-for="Title" class="form-control" placeholder="Enter book title" />
+                    <input asp-for="Title" class="form-control" placeholder="Введите название книги" />
                 </div>
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Author" class="form-label">Author</label>
+                <label asp-for="Author" class="form-label">Автор</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input asp-for="Author" class="form-control" placeholder="Enter author name" />
+                    <input asp-for="Author" class="form-control" placeholder="Введите автора книги" />
                 </div>
                 <span asp-validation-for="Author" class="text-danger"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Description" class="form-label">Description</label>
+                <label asp-for="Description" class="form-label">Описание</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-card-text"></i></span>
-                    <textarea asp-for="Description" class="form-control" placeholder="Enter book description"></textarea>
+                    <textarea asp-for="Description" class="form-control" placeholder="Введите опивание книги"></textarea>
                 </div>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group mb-4">
-                <label asp-for="FilePath" class="form-label">Upload Book File</label>
+                <label asp-for="FilePath" class="form-label">Загрузите файл книги</label>
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-upload"></i></span>
                     <input asp-for="FilePath" type="file" class="form-control" />
@@ -42,14 +42,14 @@
                 <span asp-validation-for="FilePath" class="text-danger"></span>
             </div>
             <div class="d-grid">
-                <input type="submit" value="Upload" class="btn btn-primary btn-block" />
+                <input type="submit" value="Добавить" class="btn btn-primary btn-block" />
             </div>
         </form>
     </div>
 </div>
 
 <div class="text-center mt-3">
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Назад к списку книг</a>
 </div>
 
 @section Scripts {

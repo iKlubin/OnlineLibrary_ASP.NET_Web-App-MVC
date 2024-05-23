@@ -3,10 +3,57 @@ using Microsoft.EntityFrameworkCore;
 using OnlineLibrary.Data;
 using OnlineLibrary.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace OnlineLibrary.Controllers
 {
+    [Authorize]
+    public class FavoritesController : Controller
+    {
+        private readonly LibraryContext _context;
+
+        public FavoritesController(LibraryContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Favorites
+        public async Task<IActionResult> Index()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var favoriteBooks = await _context.FavoriteBooks
+                .Where(fb => fb.UserId == userId)
+                .Include(fb => fb.Book)
+                .ToListAsync();
+            return View(favoriteBooks);
+        }
+
+        // POST: Favorites/Add
+        [HttpPost]
+        public async Task<IActionResult> Add(int bookId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
+
+            var favoriteBook = new FavoriteBook
+            {
+                UserId = userId,
+                BookId = bookId
+            };
+
+            _context.FavoriteBooks.Add(favoriteBook);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+    }
+
     public class BooksController : Controller
     {
         private readonly LibraryContext _context;
@@ -174,6 +221,23 @@ namespace OnlineLibrary.Controllers
             _context.Books.Remove(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var book = await _context.Books
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return View(book);
         }
     }
 }
